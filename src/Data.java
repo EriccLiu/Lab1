@@ -1,4 +1,4 @@
-package polynomialCalculation;
+
 
 public class Data extends node {
 	

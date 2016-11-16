@@ -1,5 +1,3 @@
-package polynomialCalculation;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -12,7 +10,7 @@ public class Calculator {
 	private ArrayList<String> variable = new ArrayList<String>();
 	private boolean illegal;
 	
-	//¹¹Ôìº¯Êý
+	//ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 	public Calculator()
 	{
 		handlers.put("!simplify", new HandlerSimplify(this));
@@ -22,7 +20,7 @@ public class Calculator {
 		savedPoly = new Operator('+');
 	}
 
-	//¸´ÖÆÊ÷
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public node copy(node root)
 	{
 		node current = null;
@@ -41,16 +39,16 @@ public class Calculator {
 		return current;
 	}
 	
-	//ÏÔÊ¾ÐÅÏ¢
+	//ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢
 	public void showPrompt()
 	{
 		System.out.println();
-		System.out.println("ÇëÊäÈëÖ¸Áî»òÐÂµÄ±í´ïÊ½£º");
-		System.out.println("Ö¸ÁîÓÐ: !simplify !d/d !exit");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ÂµÄ±ï¿½ï¿½Ê½ï¿½ï¿½");
+		System.out.println("Ö¸ï¿½ï¿½ï¿½ï¿½: !simplify !d/d !exit");
 		System.out.println();
 	}
 	
-	//ÖÐÐò±éÀú±í´ïÊ½Ê÷
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
 	public StringBuffer midTravel(node n)
 	{
 		StringBuffer sb = new StringBuffer();
@@ -60,7 +58,7 @@ public class Calculator {
 				illegal = true ;
 			}
 			
-			//ÅÐ¶Ïµ±Ç°ÓÅÏÈ¼¶£¬¸ù¾ÝÓÅÏÈ¼¶¼ÓÀ¨ºÅ
+			//ï¿½Ð¶Ïµï¿½Ç°ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			sb.append(midTravel(n.left));
 			sb.append(n.get());
 			sb.append(midTravel(n.right));
@@ -70,7 +68,7 @@ public class Calculator {
 		
 	}
 	
-	//ÏÈÐò±éÀú±í´ïÊ½Ê÷
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
 	public StringBuffer PreTravel(node n)
 	{
 		StringBuffer sb = new StringBuffer();
@@ -80,7 +78,7 @@ public class Calculator {
 				illegal = true ;
 			}
 			
-			//ÅÐ¶Ïµ±Ç°ÓÅÏÈ¼¶£¬¸ù¾ÝÓÅÏÈ¼¶¼ÓÀ¨ºÅ
+			//ï¿½Ð¶Ïµï¿½Ç°ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			sb.append(n.get());
 			sb.append(PreTravel(n.left));
 			sb.append(PreTravel(n.right));
@@ -90,7 +88,7 @@ public class Calculator {
 		
 	}
 	
-	//´òÓ¡Ê÷½á¹¹¶àÏîÊ½
+	//ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½Ê½
 	public void print(Operator n)
 	{
 		if(n.getContent()=='+')
@@ -128,7 +126,7 @@ public class Calculator {
 				{
 					if(((Character) k).getIndex()>0)
 					{
-						//ÅÐ¶ÏÊÇ·ñ´òÓ¡³ËºÅ
+						//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½Ó¡ï¿½Ëºï¿½
 						if(count!=0)
 							System.out.print("*");
 						else if(factor!=1&&factor!=-1)
@@ -144,7 +142,7 @@ public class Calculator {
 		}
 	}
 	
-	//È¥µôÀ¨ÆðÕû¸ö±í´ïÊ½µÄÀ¨ºÅ
+	//È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String debracket(String s)
 	{
 		int bracketCount = 1;
@@ -167,7 +165,7 @@ public class Calculator {
 		return s;
 	}
 
-	//µÝ¹é¹¹Ôì±í´ïÊ½Ê÷
+	//ï¿½Ý¹é¹¹ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
 	private node ContributeTree(char[] line) 
 	{
 		
@@ -176,7 +174,7 @@ public class Calculator {
 		int splitPos = 0;
 		String temp = new String(line) ;
 		
-		//ÕÒµ½ÓÐÀ¨ºÅÍâµÚÒ»¸ö¼ÓºÅ
+		//ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Óºï¿½
 		for(int i = 0 ; i < line.length ; i++ )
 		{
 			if(line[i]==' ')
@@ -202,7 +200,7 @@ public class Calculator {
 				chCount ++ ;
 			}
 		}
-		//ÈôÀ¨ºÅÍâÃ»Ó´¼ÓºÅ£¬ÔòÕÒµ½ÓÐÀ¨ºÅÍâµÚÒ»¸ö³ËºÅ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»Ó´ï¿½ÓºÅ£ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ëºï¿½
 		if(splitPos==0&&line[0]!='+')
 		{
 			for(int i = 0 ; i < line.length ; i++ )
@@ -225,12 +223,12 @@ public class Calculator {
 					continue ;
 			}
 		}
-		//Èç¹û¸Ã´®ÊÇ±äÁ¿´®
+		//ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½
 		if(line.length>0&&chCount==line.length)
 		{
 			current = new Character(line);
 		}
-		//Èç¹û¸Ã´®ÊÇÊý×Ö´®
+		//ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½
 		if(line.length>0&&numCount==line.length)
 		{
 			int data = 0 ;
@@ -271,13 +269,13 @@ public class Calculator {
 		return current;
 	}
 	
-	//Ô¤´¦Àí±í´ïÊ½×Ö·ûÊý×é
+	//Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public char[] preprocess(char[] line)
 	{
 		ArrayList process = new ArrayList();
 		if(line[0]!=' ')
 			process.add(line[0]);
-		//Ôö¼ÓÊý×Ö-±äÁ¿¡¢±äÁ¿-±äÁ¿Ö®¼äµÄ³ËºÅ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä³Ëºï¿½
 		for( int i=1 ; i<line.length-1 ; i++ )
 		{
 			if(line[i]==' ')
@@ -320,17 +318,17 @@ public class Calculator {
 		return changed;
 	}
 	
-	//½«ÊäÈë±í´ïÊ½´æÈë¶þ²æÊ÷ÖÐ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void toTree( char[] line )
 	{
 		
-		//Ô¤´¦Àí±í´ïÊ½
+		//Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		line = preprocess(line);
 			
 		root = null ;
 		int bracketCount = 0 ;
 		
-		//¼ì²éÀ¨ºÅÊýÁ¿ÊÇ·ñÆ¥Åä¡¢ÊÇ·ñÓÐ·Ç·¨×Ö·û
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Æ¥ï¿½ä¡¢ï¿½Ç·ï¿½ï¿½Ð·Ç·ï¿½ï¿½Ö·ï¿½
 		for(int i = 0 ; i < line.length ; i++ )
 		{
 			if(line[i]=='(')
@@ -340,7 +338,7 @@ public class Calculator {
 				bracketCount -- ;
 				if(bracketCount<0)
 				{
-					System.out.println("¸ñÊ½´íÎó£¡");
+					System.out.println("ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½");
 					illegal = true ;
 					break ;
 				}
@@ -349,14 +347,14 @@ public class Calculator {
 				continue ;
 			else
 			{
-				System.out.println("·Ç·¨×Ö·û£º"+line[i]);
+				System.out.println("ï¿½Ç·ï¿½ï¿½Ö·ï¿½ï¿½ï¿½"+line[i]);
 				illegal = true ;
 			}
 		}
-		//À¨ºÅÊýÁ¿²»Æ¥Åä
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½
 		if(bracketCount!=0)
 		{
-			System.out.println("À¨ºÅ²»Æ¥Åä£¡");
+			System.out.println("ï¿½ï¿½ï¿½Å²ï¿½Æ¥ï¿½ä£¡");
 			illegal = true ;
 		}
 		
@@ -366,7 +364,7 @@ public class Calculator {
 
 	}	
 	
-	//½«ËùÓÐ±äÁ¿´æÈëvariableÖÐ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½variableï¿½ï¿½
 	private void getVar(node n)
 	{
 		if(n instanceof Operator)
@@ -387,7 +385,7 @@ public class Calculator {
 		}
 	}
 	
-	//Õ¹¿ª¶àÏîÊ½µÝ¹éº¯Êý
+	//Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ý¹éº¯ï¿½ï¿½
 	private void unfold(node n) 
 	{
 		if(n instanceof Operator)
@@ -451,26 +449,26 @@ public class Calculator {
 		
 		}
 	
-	//½«Ò¶×Ó½áµãÕûÀíºÃ·ÅÈëµ¥ÏîÊ½Ê÷targetÖÐ
+	//ï¿½ï¿½Ò¶ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ëµ¥ï¿½ï¿½Ê½ï¿½ï¿½targetï¿½ï¿½
 	private void travelLeaf(node n,Operator target)
 	{
-		//ºóÐø±éÀú£¬Èô²»ÊÇÒ¶×Ó½áµãÔòÍùÏÂ±éÀú
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½ï¿½ï¿½
 		if(n.left!=null&&n.right!=null)
 		{
 			travelLeaf(n.left,target);
 			travelLeaf(n.right,target);
 		}
-		//Èç¹ûÊÇÒ¶×Ó½áµã
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½Ó½ï¿½ï¿½
 		else if(n.left==null&&n.right==null)
 		{
-			//Êý×ÖÔò½«µ±Ç°ÏµÊý³ËÉÏ½áµãÊý×ÖÔÙ´æÆðÀ´
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ò½«µï¿½Ç°Ïµï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(n instanceof Digit)
 			{
 				int result ;
 				result = ((Digit)(target.son.get(0))).getContent()*((Digit) n).getContent();
 				((Digit)(target.son.get(0))).set( result );
 			}
-			//ÈôÎª×ÖÄ¸ÔòÕÒµ½ÕÒµ½Õâ¸ö×ÖÄ¸½«ÆäÖ¸Êý¼ÓÒ»
+			//ï¿½ï¿½Îªï¿½ï¿½Ä¸ï¿½ï¿½ï¿½Òµï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ò»
 			else if(n instanceof Character)
 			{	
 				for(node k : ((Operator)target).son )
@@ -490,14 +488,14 @@ public class Calculator {
 		}	
 	}
 	
-	//½«¶þ²æÊ÷±í´ïÊ½×ª»¯ÎªÊ÷±í´ïÊ½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 	private node settle(node n)
 	{
-		//³õÊ¼»¯³ËºÅ½áµã
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ËºÅ½ï¿½ï¿½
 		Operator sub = new Operator('*');
 		sub.addSon(new Digit(1));
 		
-		//³õÊ¼»¯³ËºÅ½áµã×Ó½Úµã
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ËºÅ½ï¿½ï¿½ï¿½Ó½Úµï¿½
 		for( Object k : variable )
 		{
 			node leaf = new Character((String)k);
@@ -505,13 +503,13 @@ public class Calculator {
 			sub.addSon(leaf);
 		}
 		
-		//ÕûÀí³ËºÅ½áµã
+		//ï¿½ï¿½ï¿½ï¿½ËºÅ½ï¿½ï¿½
 		travelLeaf(n,sub);
 		
 		return sub;
 	}
 	
-	//½«¶àÏîÊ½ºÏ²¢²¢ÇÒ´æÈësavedPolyÖÐ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½savedPolyï¿½ï¿½
 	private void clearUp(node n)
 	{	
 		if(n instanceof Operator&&((Operator) n).getContent()=='+')
@@ -526,7 +524,7 @@ public class Calculator {
 		}
 	}
 
-	//±È½ÏÁ½¸öµ¥ÏîÊ½ÊÇ·ñÎªÍ¬ÀàÏî
+	//ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ç·ï¿½ÎªÍ¬ï¿½ï¿½ï¿½ï¿½
 	private boolean compareMono(Operator a,Operator b)
 	{
 		boolean isSame = true;
@@ -543,10 +541,10 @@ public class Calculator {
 		return isSame ;
 	}
 	
-	//ºÏ²¢Í¬ÀàÐÍ
+	//ï¿½Ï²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
 	private void combine()
 	{
-		//±È½ÏÁ½¸öµ¥ÏîÊ½ÊÇ·ñÎªÍ¬ÀàÏî
+		//ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ç·ï¿½ÎªÍ¬ï¿½ï¿½ï¿½ï¿½
 		for(int i = 0 ; i < savedPoly.son.size() ; i++ )
 		{
 			for(int j = i+1 ; j < savedPoly.son.size() ; j++ )
@@ -563,30 +561,30 @@ public class Calculator {
 		}
 	}
 	
-	//½«±í´ïÊ½»¯¼ò´æÈëÊ÷ÖÐ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void Save(char[] input) 
 	{
 		
-		//³õÊ¼»¯Á½¿ÃÊ÷
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		root = null;
 		savedPoly = new Operator('+');
 		variable.clear();
 		
-		//½«±í´ïÊ½´æÈëÊ÷ÖÐ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		toTree(input);
 
 		if(!illegal)
 		{
-			//´æ´¢ËùÓÐ±äÁ¿
+			//ï¿½æ´¢ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 			getVar(root);
 			
-			//¸ù¾ÝÊ÷½«±í´ïÊ½È«²¿Õ¹¿ª£¨È¥À¨ºÅ£©
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½È«ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½Å£ï¿½
 			unfold(root);
 		
-			//»¯¼ò¶àÏîÊ½
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 			clearUp(root);
 						
-			//ºÏ²¢Í¬ÀàÏî
+			//ï¿½Ï²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
 			combine();
 			
 			print(savedPoly);
@@ -595,7 +593,7 @@ public class Calculator {
 	//
 
 	
-	//»¯¼ò±í´ïÊ½Ö¸Áî
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½Ö¸ï¿½ï¿½
 	public void simplify(String cmd)
 	{
 		ArrayList<String> input = new ArrayList<String>();
@@ -603,7 +601,7 @@ public class Calculator {
 		String[] cut = cmd.split(" ");
 		boolean exist = false;
 		
-		//½«ÊäÈë×Ö·û´®ÖÐµÄ±äÁ¿ÓëÆä¶ÔÓ¦Öµ´æµ½¹þÏ£±íÖÐ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦Öµï¿½æµ½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½
 		for(int i=0 ; i < cut.length ; i++ )
 		{
 			exist = false;
@@ -633,7 +631,7 @@ public class Calculator {
 						}
 					}
 					
-					//ÅÐ¶Ï¸Ã±äÁ¿ÊÇ·ñ´æÔÚ
+					//ï¿½Ð¶Ï¸Ã±ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 					for(String k : variable)
 					{
 						if(k.equals(divide[0]))
@@ -646,13 +644,13 @@ public class Calculator {
 					}
 					if(!exist)
 					{
-						System.out.println("±äÁ¿"+divide[0]+"²»´æÔÚ£¡");
+						System.out.println("ï¿½ï¿½ï¿½ï¿½"+divide[0]+"ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½");
 					}
 				}
 			}
 		}
 		
-		//½«Öµ¸³¸øÃ¿¸öµ¥ÏîÊ½
+		//ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		for( node n : savedPoly.son )
 		{
 			int factor = ((Digit)(((Operator)n).son.get(0))).getContent();
@@ -665,12 +663,12 @@ public class Calculator {
 				}
 				((Digit)((Operator)n).son.get(0)).set(factor);
 			}
-			//Èç¹û¸ÃÏîÖµÎª0£¬ÔòÒÆ³ý
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª0ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½
 			if(factor==0)
 			{
 				savedPoly.son.remove(n);
 			}
-			//ÒÆ³ý¸³ÖµµÄ±äÁ¿
+			//ï¿½Æ³ï¿½ï¿½ï¿½Öµï¿½Ä±ï¿½ï¿½ï¿½
 			else
 			{
 				for(String k : input)
@@ -687,7 +685,7 @@ public class Calculator {
 			}
 		}
 		
-		//ÒÆ³ý±äÁ¿±íÖÐ¸³ÖµµÄ±äÁ¿
+		//ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½Öµï¿½Ä±ï¿½ï¿½ï¿½
 		for( String k : input )
 		{
 			for( String p : variable )
@@ -707,7 +705,7 @@ public class Calculator {
 	//
 	
 	
-	//Çóµ¼Ö¸Áî
+	//ï¿½ï¿½Ö¸ï¿½ï¿½
 	public void derivation(String cmd)
 	{
 		int j = 0 , pos =0;
@@ -747,7 +745,7 @@ public class Calculator {
 			}
 		}
 		
-		//½«Öµ¸³¸øÃ¿¸öµ¥ÏîÊ½
+		//ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		if(!illegal)
 		{
 			for( int i=0 ; i < savedPoly.son.size() ; i++ )
@@ -759,7 +757,7 @@ public class Calculator {
 				((Character)(((Operator)n).son.get(pos))).setIndex(index-1);
 				((Digit)(((Operator)n).son.get(0))).set(factor);
 					
-				//Èç¹û¸ÃÏîÖµÎª0£¬ÔòÒÆ³ý
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª0ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½
 				if(factor==0)
 				{
 					savedPoly.son.remove(n);
@@ -776,7 +774,7 @@ public class Calculator {
 	//
 
 	
-	//¼ÆËãÖ÷·½·¨
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void calculate()
 	{
 		
@@ -789,7 +787,7 @@ public class Calculator {
 			line = line.toLowerCase();
 			char[] input = line.toCharArray();
 			
-			//ÓÐ´ýÓÃhandler¸ñÊ½»¯´úÂë
+			//ï¿½Ð´ï¿½ï¿½ï¿½handlerï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(input[0]!='!')
 			{
 				Save(input);
@@ -814,7 +812,7 @@ public class Calculator {
 					else if(root!=null)
 						handler.doCmd(line);
 					else
-						System.out.println("Ã»ÓÐ´´½¨±í´ïÊ½£¡");
+						System.out.println("Ã»ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½");
 				}
 				else
 				{
@@ -823,7 +821,7 @@ public class Calculator {
 			}
 			
 			if(illegal){
-				System.out.println("²»ºÏ·¨ÊäÈë£¡");
+				System.out.println("ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ë£¡");
 			}
 
 			illegal = false ;

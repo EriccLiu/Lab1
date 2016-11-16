@@ -1,4 +1,4 @@
-package polynomialCalculation;
+
 
 import java.util.ArrayList;
 

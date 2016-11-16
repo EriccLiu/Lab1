@@ -1,5 +1,3 @@
-package polynomialCalculation;
-
 public class Character extends Data {
 	
 	private String word;
