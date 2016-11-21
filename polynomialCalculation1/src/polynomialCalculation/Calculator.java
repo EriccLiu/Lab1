@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 public class Calculator {
 
   private transient Node root;
   transient Operator savedPoly;
-  static Information info = new Information();
+  public static Information info = new Information();
 
   private transient HashMap<String, Handler> handlers = new HashMap<String, Handler>();
   private transient ArrayList<String> variable = new ArrayList<String>();
@@ -22,6 +23,16 @@ public class Calculator {
   private static final char MULTIPLY = '*';
   private static final char EXCLAMATION = '!';
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   public Calculator() {
     handlers.put("!simplify", new HandlerSimplify(this));
     handlers.put("!d/d", new HandlerDerivation(this));
@@ -479,7 +490,7 @@ public class Calculator {
       unfold(root);
       clearUp(root);
       combine();
-      return print(savedPoly);
+      return print(savedPoly); 
     }
     return "";
   }
@@ -567,8 +578,9 @@ public class Calculator {
     int varPos = 0;
     int pos = 0;
     char[] var = cmd.toCharArray();
+    String result = "";
     for (int i = 0; i < var.length; i++, varPos++) {
-      if (varPos > i && var[i] != ' ') {
+      if (varPos > i && var[i] != SPACE) {
         info.addMessage("只能对一个变量求导.\n");
         illegal = true;
         break;
@@ -594,9 +606,9 @@ public class Calculator {
           }
         }
         if(illegal){
-          info.addMessage("变量"+cut+"不存在");
+          info.addMessage("变量"+cut+"不存在\n");
         }
-        break;
+
       }
     }
 
@@ -616,10 +628,10 @@ public class Calculator {
 
       }
       combine();
-      return print(savedPoly);
+      result = print(savedPoly);
     }
     illegal = false;
-    return null;
+    return result;
   }
 
   public void doCalculation(String line) {
